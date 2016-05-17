@@ -1,17 +1,24 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AssetType extends Model
+class Institution extends Model
 {
   /**
    * The database table used by the model.
    *
    * @var string
    */
-  protected $table = 'asset_types';
+  protected $table = 'institutions';
+
+  /**
+   * The primary key for the model.
+   *
+   * @var string
+   */
+  protected $primaryKey = 'organization_id';
 
   /**
    * The attributes that are mass assignable.
@@ -19,12 +26,6 @@ class AssetType extends Model
    * @var array
    */
   protected $fillable = [
-    'name',
-    'sort_order',
+    'institution_type_id',
   ];
-
-  public function assets()
-	{
-		return $this->hasMany('App\Asset', 'primary_asset_type_id');
-	}
 }

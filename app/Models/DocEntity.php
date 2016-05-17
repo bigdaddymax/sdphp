@@ -1,17 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Person extends Model
+class DocEntity extends Model
 {
   /**
    * The database table used by the model.
    *
    * @var string
    */
-  protected $table = 'people';
+  protected $table = 'document_entities';
 
   /**
    * The attributes that are mass assignable.
@@ -19,14 +19,8 @@ class Person extends Model
    * @var array
    */
   protected $fillable = [
-    'first_name',
-    'last_name',
-    'email',
+    'document_id',
+    'entity_type_id',
+    'entity_id',
   ];
-
-  public function user()
-	{
-		return $this->hasOne('User', 'person_id');
-	}
-
 }

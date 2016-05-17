@@ -1,17 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Org extends Model
+class Person extends Model
 {
   /**
    * The database table used by the model.
    *
    * @var string
    */
-  protected $table = 'organizations';
+  protected $table = 'people';
 
   /**
    * The attributes that are mass assignable.
@@ -19,9 +19,14 @@ class Org extends Model
    * @var array
    */
   protected $fillable = [
-    'name',
-    'short_name',
-    'primary_organization_type_id',
-    'website',
+    'first_name',
+    'last_name',
+    'email',
   ];
+
+  public function user()
+	{
+		return $this->hasOne('User', 'person_id');
+	}
+
 }

@@ -1,17 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Doc extends Model
+class AssetType extends Model
 {
   /**
    * The database table used by the model.
    *
    * @var string
    */
-  protected $table = 'documents';
+  protected $table = 'asset_types';
 
   /**
    * The attributes that are mass assignable.
@@ -20,9 +20,11 @@ class Doc extends Model
    */
   protected $fillable = [
     'name',
-    'file_name',
-    'document_date',
-    'date_received',
-    'original_file_name',
+    'sort_order',
   ];
+
+  public function assets()
+	{
+		return $this->hasMany('App\Asset', 'primary_asset_type_id');
+	}
 }

@@ -1,17 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PortfolioType extends Model
+class InvestmentStatus extends Model
 {
   /**
    * The database table used by the model.
    *
    * @var string
    */
-  protected $table = 'portfolio_types';
+  protected $table = 'investment_statuses';
 
   // /**
   //  * The attributes that are mass assignable.
@@ -23,9 +23,9 @@ class PortfolioType extends Model
   //   'sort_order',
   // ];
 
-  public function portfolios()
-  {
-    return $this->hasMany('App\Portfolio', 'primary_portfolio_type_id');
-  }
+  public function investments()
+	{
+		return $this->hasMany('App\Investment', 'investment_status_id', 'id');
+	}
 
 }

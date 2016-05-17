@@ -1,17 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Institution extends Model
+class Client extends Model
 {
   /**
    * The database table used by the model.
    *
    * @var string
    */
-  protected $table = 'institutions';
+  protected $table = 'clients';
 
   /**
    * The primary key for the model.
@@ -26,6 +26,18 @@ class Institution extends Model
    * @var array
    */
   protected $fillable = [
-    'institution_type_id',
+    'active',
+    'file_name',
   ];
+
+  public function people()
+	{
+		return $this->belongsToMany('App\Person', 'organization_person', 'organization_id', 'person_id');
+	}
+
+	public function clientTeams()
+	{
+		return $this->hasMany('App\ClientTeam', 'organization_id');
+	}
+
 }

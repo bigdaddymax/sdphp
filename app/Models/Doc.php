@@ -1,17 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DocEntity extends Model
+class Doc extends Model
 {
   /**
    * The database table used by the model.
    *
    * @var string
    */
-  protected $table = 'document_entities';
+  protected $table = 'documents';
 
   /**
    * The attributes that are mass assignable.
@@ -19,8 +19,10 @@ class DocEntity extends Model
    * @var array
    */
   protected $fillable = [
-    'document_id',
-    'entity_type_id',
-    'entity_id',
+    'name',
+    'file_name',
+    'document_date',
+    'date_received',
+    'original_file_name',
   ];
 }
