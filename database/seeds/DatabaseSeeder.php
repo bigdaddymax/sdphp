@@ -49,6 +49,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PortfolioTypesTableSeeder::class);
         $this->call(StrategiesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(DocumentFundsTableSeeder::class);
+        $this->call(DocumentClientsTableSeeder::class);
 
         Model::reguard();
     }

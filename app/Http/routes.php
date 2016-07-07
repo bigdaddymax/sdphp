@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('documents', 'DocumentsController@index');
+Route::post('documents/create', 'DocumentsController@create');
+Route::post('upload', 'DocumentsController@upload');
